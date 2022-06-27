@@ -1,6 +1,6 @@
-# UFRPE 2021.1 🗃️
+# UFRPE 2021 🗃️
 
-Esse repositório contém anotações, resumos e códigos produzidos por mim durante o período 2021.1 da Universidade Federal Rural de Pernambuco (UFRPE).
+Esse repositório contém anotações, resumos e códigos produzidos por mim durante os períodos 2021.1 e 2021.2 da Universidade Federal Rural de Pernambuco (UFRPE).
 
 ## Objetivos
 
