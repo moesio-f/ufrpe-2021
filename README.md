@@ -18,7 +18,8 @@ Resumos e anotações estão disponibilizados em Markdown.
 
 ## Disciplinas
 
-- Arquitetura e Organização de Computadores: `COD`
-- Banco de Dados S: `BD`
-- Inteligência Artificial: `IA`
-- Redes de Computadores: `CN`
+- 2021.2
+  - Arquitetura e Organização de Computadores: `COD`
+  - Banco de Dados S: `BD`
+  - Inteligência Artificial: `IA`
+  - Redes de Computadores: `CN`
