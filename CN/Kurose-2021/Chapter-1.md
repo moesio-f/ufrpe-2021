@@ -4,6 +4,9 @@
     - [1.1.2 A Services Description](#112-a-services-description)
     - [1.1.3 What is a Protocol?](#113-what-is-a-protocol)
       - [Network Protocols](#network-protocols)
+  - [1.2 The Network Edge](#12-the-network-edge)
+    - [1.2.1 Access Networks](#121-access-networks)
+      - [Home Access: DSL, Cable, FTTH, and 5G Fixed Wireless](#home-access-dsl-cable-ftth-and-5g-fixed-wireless)
 
 
 ---
@@ -70,3 +73,20 @@ Putting simply, a _protocol_ defines a set of "rules" or actions that must be ta
 > A **protocol** defines the format and the order of messages exchanged between two or more communicating entities, as well as the actions taken on the transmission and/or receipt of a message or other event. 
 
 The Internet, and computer networks in general, make extensive use of protocols. Different protocols are used to accomplish different communication tasks.
+
+## 1.2 The Network Edge
+
+The network edge consists of end systems. Hosts are sometimes divided in **clients** and **servers**. Most of the servers reside in large **data centers**.
+
+> Internet companies such as Google, Microsoft, Amazon, and Alibaba have built massive data centers, each housing tens to hundreds of thousands of hosts. These data centers are not only connected to the Internet [...] but also internally include complex computer networks that interconnect the data center's hosts. The data centers are the engines behind the Internet applications that we use on a
+daily basis.
+
+### 1.2.1 Access Networks
+
+![IMG](../Kurose-2021/imgs/1-4.png)
+
+Access networks connects end systems to the first router (aka, _edge router_) on a path from the end system to any other distant end system.
+
+In the following subsections, a few types of access networks are considered.
+
+#### Home Access: DSL, Cable, FTTH, and 5G Fixed Wireless
