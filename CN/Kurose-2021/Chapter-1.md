@@ -17,7 +17,7 @@ There are different ways to define the internet, two possible approaches are:
 
 ### 1.1.1 A Nuts-and-Bolts Description
 
-![IMG](../Kurose-2021/imgs/C1/1-1.png)
+![IMG](../Kurose-2021/imgs/1-1.png)
 
 > The Internet is a computer network that interconnects billions of computing devices throughout the world.
 
@@ -57,7 +57,7 @@ End systems attached to the Internet provide a **socket interface** that specifi
 ### 1.1.3 What is a Protocol?
 
 
-![IMG](../Kurose-2021/imgs/C1/1-2.png)
+![IMG](../Kurose-2021/imgs/1-2.png)
 
 Putting simply, a _protocol_ defines a set of "rules" or actions that must be taken to accomplish some task.
 
