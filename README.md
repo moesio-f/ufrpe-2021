@@ -15,3 +15,10 @@ Esse repositório é organizado de acordo com as diferentes disciplinas cursadas
 De forma geral, existe um diretório para cada disciplina e a estrutura interna de cada diretório pode variar. 
 
 Resumos e anotações estão disponibilizados em Markdown.
+
+## Disciplinas
+
+- Arquitetura e Organização de Computadores: `COD`
+- Banco de Dados S: `BD`
+- Inteligência Artificial: `IA`
+- Redes de Computadores: `CN`
