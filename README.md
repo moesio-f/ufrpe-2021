@@ -23,3 +23,8 @@ Resumos e anotações estão disponibilizados em Markdown.
   - Banco de Dados S: `BD`
   - Inteligência Artificial: `IA`
   - Redes de Computadores: `CN`
+
+---
+_Edital de Matrícula 2021.1:_ http://ufrpe.br/br/content/divulgados-edital-de-matr%C3%ADcula-e-hor%C3%A1rios-de-disciplinas-dos-cursos-de-gradua%C3%A7%C3%A3o-presenciais
+
+_Edital de Matrícula 2021.2:_ http://ufrpe.br/br/content/divulgados-edital-de-matr%C3%ADcula-e-hor%C3%A1rios-20212-da-sede
