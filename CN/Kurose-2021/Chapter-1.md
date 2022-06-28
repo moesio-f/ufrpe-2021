@@ -2,6 +2,8 @@
   - [1.1 What is the Internet?](#11-what-is-the-internet)
     - [1.1.1 A Nuts-and-Bolts Description](#111-a-nuts-and-bolts-description)
     - [1.1.2 A Services Description](#112-a-services-description)
+    - [1.1.3 What is a Protocol?](#113-what-is-a-protocol)
+      - [Network Protocols](#network-protocols)
 
 
 ---
@@ -14,6 +16,8 @@ There are different ways to define the internet, two possible approaches are:
 - A networking infrastructure that provides services to distributed applications;
 
 ### 1.1.1 A Nuts-and-Bolts Description
+
+![IMG](../Kurose-2021/imgs/C1/1-1.png)
 
 > The Internet is a computer network that interconnects billions of computing devices throughout the world.
 
@@ -39,3 +43,30 @@ End systems, packet switches, and other pieces of the Internet run **protocols**
 > Internet standards are developed by the Internet Engineering Task Force (IETF) [IETF 2020]. The IETF standards documents are called requests for comments (RFCs). RFCs started out as general requests for comments (hence the name) to resolve network and protocol design problems that faced the precursor to the Internet [Allman 2011]. RFCs tend to be quite technical and detailed. They define protocols such as TCP, IP, HTTP (for the Web), and SMTP (for e-mail). There are currently nearly 9000 RFCs. Other bodies also specify standards for network components, most notably for network links. The IEEE 802 LAN Standards Committee [IEEE 802 2020], for example, specifies the Ethernet and wireless WiFi standards.
 
 ### 1.1.2 A Services Description
+
+>  Internet applications include mobile
+smartphone and tablet applications, including Internet messaging, mapping with real-time road-traffic information, music streaming movie and television streaming, online social media, video conferencing, multi-person games, and location-based recommendation systems.
+
+The applications are said to be **distributed applications**, since they involve multiple end systems that exchange data with each other. Importantly, Internet applications run on end systems—they do not run in the packet switches in the network core. Although packet switches facilitate the exchange of data among end systems, they are not concerned with the application that is the source or sink of data. An alternative way of describing the Internet is answering the following:
+
+> How does one program running on one end system instruct the Internet to deliver data to another program running on another end system?
+
+
+End systems attached to the Internet provide a **socket interface** that specifies how a program running on one end system asks the Internet infrastructure to deliver data to a specific destination program running on another end system. This Internet socket interface is a set of rules that the sending program must follow so that the Internet can deliver the data to the destination program. 
+
+### 1.1.3 What is a Protocol?
+
+
+![IMG](../Kurose-2021/imgs/C1/1-2.png)
+
+Putting simply, a _protocol_ defines a set of "rules" or actions that must be taken to accomplish some task.
+
+> [...] it takes two (or more) communicating entities running the same protocol in order to accomplish a task.
+
+#### Network Protocols
+
+> All activity in the Internet that involves two or more communicating remote entities is governed by a protocol.
+
+> A **protocol** defines the format and the order of messages exchanged between two or more communicating entities, as well as the actions taken on the transmission and/or receipt of a message or other event. 
+
+The Internet, and computer networks in general, make extensive use of protocols. Different protocols are used to accomplish different communication tasks.
