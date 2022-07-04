@@ -20,8 +20,8 @@ Resumos e anotações estão disponibilizados em Markdown.
 
 - 2021.2
   - Arquitetura e Organização de Computadores: `COD`
-  - Banco de Dados S: `BD`
-  - Inteligência Artificial: `IA`
+  - Banco de Dados S: `DB`
+  - Inteligência Artificial: `AI`
   - Redes de Computadores: `CN`
 
 ---
