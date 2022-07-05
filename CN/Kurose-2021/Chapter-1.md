@@ -23,6 +23,15 @@
       - [Multiplexing in Circuit-Switched Networks](#multiplexing-in-circuit-switched-networks)
       - [Packet Switching Versus Circuit Switching](#packet-switching-versus-circuit-switching)
     - [1.3.3  A Network of Networks](#133--a-network-of-networks)
+  - [1.5 Protocol Layers and Their Service Models](#15-protocol-layers-and-their-service-models)
+    - [1.5.1 Layered Architecture](#151-layered-architecture)
+      - [Protocol Layering](#protocol-layering)
+      - [Application Layer](#application-layer)
+      - [Transport Layer](#transport-layer)
+      - [Network Layer](#network-layer)
+      - [Link Layer](#link-layer)
+      - [Physical Layer](#physical-layer)
+    - [1.5.2 Encapsulation](#152-encapsulation)
 
 
 ---
@@ -282,3 +291,65 @@ Today's Internet Network Structure consists of tiered ISPs, PoPs, peering, multi
 > In summary, today’s Internet—a network of networks—is complex, consisting of a dozen or so tier-1 ISPs and hundreds of thousands of lower-tier ISPs. The ISPs are diverse in their coverage, with some spanning multiple continents and oceans, and others limited to narrow geographic regions. The lower-tier ISPs connect to the higher-tier ISPs, and the higher-tier ISPs interconnect with one another. Users and content providers are customers of lower-tier ISPs, and lower-tier ISPs are customers of higher-tier ISPs. In recent years, major content providers have also created their own networks and connect directly into lower-tier ISPs where possible.
 
 ![IMG](../Kurose-2021/imgs/1-15.png)
+
+
+## 1.5 Protocol Layers and Their Service Models
+
+### 1.5.1 Layered Architecture
+
+> A layered architecture allows us to discuss a well-defined, specific part of a large and complex system.
+
+#### Protocol Layering
+
+> To provide structure to the design of network protocols, network designers organize protocols—and the network hardware and software that implement the protocols—in **layers**.
+
+> A protocol layer can be implemented in software, in hardware, or in a combination of the two. 
+
+> When taken together, the protocols of the various layers are called the **protocol stack**. The Internet protocol stack consists of five layers: the physical, link, network,
+transport, and application layer.
+
+#### Application Layer
+
+> The application layer is where network applications and their application-layer protocols reside. The Internet’s application layer includes many protocols, such as the HTTP protocol (which provides for Web document request and transfer), SMTP (which provides for the transfer of e-mail messages), and FTP (which provides for the transfer of files between two end systems). 
+ 
+The domain name system (DNS) is also in this layer. An Application-layer protocol is distributed over multiple end system, with the application in the end systems exchanging packets of information (called **messages** in this layer) using the same protocol.
+
+#### Transport Layer
+
+> The Internet’s transport layer transports application-layer messages between application endpoints. In the Internet, there are two transport protocols, **TCP** and **UDP**.
+
+TCP provides a connection-oriented service to its applications, including guaranteed delivery, flow control, congestion-control and "message breaking" (i.e., breaking long messages into shorter segments).
+
+UDP provides a connectionless service to its applications with no reliability, no flow control, and no congestion control. Transport-layer packets are referred as **segments**.
+
+#### Network Layer
+
+> The Internet’s network layer is responsible for moving network-layer packets known as **datagrams** from one host to another. The Internet transport-layer protocol (TCP or UDP) in a source host passes a transport-layer segment and a destination address to the network layer.
+
+This layer includes the IP protocol, which defines the fields in the datagram as well as how end system and routers act on these fields. It also contains routing protocols that determine the routes the datagrams take between sources and destinations.
+
+It is important to note that there's one one IP protocol but many routing protocols. It is also called the **IP layer**.
+
+#### Link Layer
+
+> The Internet’s network layer routes a datagram through a series of routers between the source and destination. To move a packet from one node (host or router) to the next node in the route, the network layer relies on the services of the link layer.
+
+>  In particular, at each node, the network layer passes the datagram down to the link layer, which delivers the datagram to the next node along the route. At this next node, the link layer passes the datagram up to the network layer.
+
+The services provided by this layer depend on the specific link-layer protocol employed over the link.
+
+Example of link-layer protocols include Ethernet, WiFI, and the cable access network's DOCSIS protocol. Link-layer packets can be referred as **frames**.
+
+#### Physical Layer
+
+> While the job of the link layer is to move entire frames from one network element to an adjacent network element, the job of the physical layer is to move the individual bits within the frame from one node to the next.
+
+The protocol in this layers are link dependent and further depende on the actual transmission medium of the link.
+
+### 1.5.2 Encapsulation
+
+> Similar to end systems, routers and link-layer switches organize their networking hardware and software into layers. But routers and link-layer switches do not implement all of the layers in the protocol stack; they typically implement only the bottom layers. 
+
+> At each layer, a packet has two types of fields: header fields and a **payload field**. The payload is typically a packet from the layer above
+
+![IMG](../Kurose-2021/imgs/1-24.png)
