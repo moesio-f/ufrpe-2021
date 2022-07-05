@@ -14,6 +14,15 @@
       - [Fiber Optics](#fiber-optics)
       - [Terrestrial Radio Channels](#terrestrial-radio-channels)
       - [Satellite Radio Channels](#satellite-radio-channels)
+  - [1.3 The Network Core](#13-the-network-core)
+    - [1.3.1 Packet Switching](#131-packet-switching)
+      - [Store-and-Forward Transmission](#store-and-forward-transmission)
+      - [Queuing Delay and Packet Loss](#queuing-delay-and-packet-loss)
+      - [Forwarding Tables and Routing Protocols](#forwarding-tables-and-routing-protocols)
+    - [1.3.2 Circuit Switching](#132-circuit-switching)
+      - [Multiplexing in Circuit-Switched Networks](#multiplexing-in-circuit-switched-networks)
+      - [Packet Switching Versus Circuit Switching](#packet-switching-versus-circuit-switching)
+    - [1.3.3  A Network of Networks](#133--a-network-of-networks)
 
 
 ---
@@ -171,3 +180,105 @@ Physical media fall into two categories:
 #### Satellite Radio Channels
 
 > A communication satellite links two or more Earth-based microwave transmitter/receivers, known as ground stations. The satellite receives transmissions on one frequency band, regenerates the signal using a repeater, and transmits the signal on another frequency. Two types of satellites are used in communications: **geostationary satellites** and **low-earth orbiting (LEO) satellites**.
+
+
+## 1.3 The Network Core
+
+The Internet's core is a mesh of packet switches and links that interconnects end systems.
+
+### 1.3.1 Packet Switching
+
+> In a network application, end systems exchange **messages** with each other.
+
+Messages can contain anything, ranging from control functions to data (e.g., e-mail message, images, audio). In order to exchange messages, end system actually send **packets** (smaller chunk of datas) through the network. Between source and destination, each packet travels through communication links and **packet switches**.
+
+> Packets are transmitted over each communication link at a rate equal to the full transmission rate of the link. So, if a source end system or a packet switch is sending a packet of $L$ bits over a link with transmission rate $R$ bits/sec, then the time to transmit the packet is $L/R$ seconds.
+
+#### Store-and-Forward Transmission
+
+> Store-and-forward transmission means that the packet switch must receive the entire packet before it can begin to transmit the first bit of the packet onto the
+outbound link.
+
+
+![IMG](../Kurose-2021/imgs/1-11.png)
+
+#### Queuing Delay and Packet Loss
+
+Packet switches usually have multiple links attached to it, for every link it has an **output buffer** (or **output queue**) to store packets that the switch is about to send into that link.
+
+If an arriving packet needs to be transmitted onto a link but it is busy with the transmission of another packet, the arriving packet must wait in the output buffer.
+
+Thus, in addition to the store-and-forward delays, packets suffer from output buffer **queuing delays**. Since memory is limited, the output buffer might be completely full with other packets, **packet loss** will occur (either the arriving packet or one of the queued packets will be dropped).
+
+![IMG](../Kurose-2021/imgs/1-12.png)
+
+#### Forwarding Tables and Routing Protocols
+
+> Packet forwarding is done differently in different types of computer networks.
+
+In the Internet, every system has an address called **IP address**. When a host want to send another end system, the sources includes the destination's IP address in the packet's header.
+
+Every router has a **forwarding table** that maps destinations addresses to the router's outbound links.
+
+> [...] the Internet has a number of special routing protocols that are used to automatically set the forwarding tables. A routing protocol may, for example, determine the shortest path from each router to each destination and use the shortest path results to configure the forwarding tables in the routers.
+
+
+### 1.3.2 Circuit Switching
+
+> There are two fundamental approaches to moving data through a network of links and switches: **circuit switching** and **packet switching**.
+
+> In circuit-switched networks, the resources needed along a path (buffers, link transmission rate) to provide for communication between the end systems are reserved for the duration of the communication session between the end systems.
+
+![IMG](../Kurose-2021/imgs/1-13.png)
+
+
+#### Multiplexing in Circuit-Switched Networks
+
+> A **circuit** in a link is implemented with either **frequency-division multiplexing (FDM)** or **time-division multiplexing (TDM)**.
+
+In a FDM link, the frequency spectrum of a link is divided up among the connections established across the link. It dedicates a frequency band to each connection for the duration of the connection.
+
+> In telephone networks, this frequency band typically has a width of 4 kHz [...] The width of the band is called [...] **bandwidth**. 
+
+In a TDM link, time is divided into frames of fixed duration, and each frame is divided into a fixed number of time slots. It dedicates one time slot in every frame for a given connection.
+
+![IMG](../Kurose-2021/imgs/1-14.png)
+
+> Proponents of packet switching have always argued that circuit switching is wasteful because the dedicated circuits are idle during **silent periods**.
+
+
+#### Packet Switching Versus Circuit Switching
+
+> Critics of packet switching have often argued that packet switching is not suitable for real-time services (for example, telephone calls and video conference calls) because of its variable and unpredictable end-to-end delays (due primarily to variable and unpredictable queuing delays).
+
+> Proponents of packet switching argue that (1) it offers better sharing of transmission capacity than circuit switching and (2) it is simpler, more efficient, and less costly to implement than circuit switching.
+
+> 
+> [...] the crucial difference between the two forms of sharing a link’s transmission rate among multiple data streams. Circuit switching pre-allocates use of the transmission link regardless of demand, with allocated but unneeded link time going unused. Packet switching on the other hand allocates link use on demand.
+
+### 1.3.3  A Network of Networks
+
+> Over the years, the network of networks that forms the Internet has evolved into a very complex structure. Much of this evolution is driven by economics and national policy, rather than by performance considerations.
+
+> [...] In reality, although some ISPs
+do have impressive global coverage and do directly connect with many access ISPs, no ISP has presence in each and every city in the world. Instead, in any given region, there may be a **regional ISP** to which the access ISPs in the region connect. Each regional ISP then connects to **tier-1 ISPs**.
+
+> To build a network that more closely resembles today’s Internet, we must add points of presence (PoPs), multi-homing, peering, and Internet exchange points (IXPs) to the hierarchical Network Structure 3.
+
+A **PoP** is a group of one or more routers (at the same location) in the provider's network where customer ISPs can connect into the provider ISP.
+
+Any ISP (except tier-1) may choose to **multi-home**, that is, to connect to two or more provider ISPs.
+
+> [...] customer ISPs pay their provider ISPs to obtain global Internet interconnectivity. The amount that a customer ISP pays a provider ISP reflects the amount of traffic it exchanges with the provider.
+
+A pair of nearby ISPs in the same level of the hierarchy can **peer**, that is, directly connect their networks together so that all traffic between them passes over the direct connection rather than through upstream intermediaries.
+
+An **Internet Exchange Point (IXP)** is a meeting point where multiple ISPs can peer together.
+
+> We refer to this  ecosystem—consisting of access ISPs, regional ISPs, tier-1 ISPs, PoPs, multi-homing, peering, and IXPs—as Network Structure 4.
+
+Today's Internet Network Structure consists of tiered ISPs, PoPs, peering, multi-homing, IXPs and **content-provider networks**. Such content-providers (e.g., Google) try to bypass tier-1 ISPs through peering and IXPs.
+
+> In summary, today’s Internet—a network of networks—is complex, consisting of a dozen or so tier-1 ISPs and hundreds of thousands of lower-tier ISPs. The ISPs are diverse in their coverage, with some spanning multiple continents and oceans, and others limited to narrow geographic regions. The lower-tier ISPs connect to the higher-tier ISPs, and the higher-tier ISPs interconnect with one another. Users and content providers are customers of lower-tier ISPs, and lower-tier ISPs are customers of higher-tier ISPs. In recent years, major content providers have also created their own networks and connect directly into lower-tier ISPs where possible.
+
+![IMG](../Kurose-2021/imgs/1-15.png)
