@@ -308,6 +308,8 @@ Today's Internet Network Structure consists of tiered ISPs, PoPs, peering, multi
 > When taken together, the protocols of the various layers are called the **protocol stack**. The Internet protocol stack consists of five layers: the physical, link, network,
 transport, and application layer.
 
+![IMG](../Kurose-2021/imgs/1-23.png)
+
 #### Application Layer
 
 > The application layer is where network applications and their application-layer protocols reside. The Internet’s application layer includes many protocols, such as the HTTP protocol (which provides for Web document request and transfer), SMTP (which provides for the transfer of e-mail messages), and FTP (which provides for the transfer of files between two end systems). 
