@@ -1,3 +1,15 @@
+- [Chapter 1: Computer Abstractions and Technology](#chapter-1-computer-abstractions-and-technology)
+  - [1.1 Introduction](#11-introduction)
+    - [Classes of Computing Applications and Their Characteristics](#classes-of-computing-applications-and-their-characteristics)
+    - [Understanding Performance](#understanding-performance)
+  - [1.2 Below Your Program](#12-below-your-program)
+    - [From a High-Level Language to the Language of Hardware](#from-a-high-level-language-to-the-language-of-hardware)
+  - [1.3 Under the Covers](#13-under-the-covers)
+  - [1.4 Performance](#14-performance)
+    - [Defining Performance](#defining-performance)
+    - [Measuring Performance](#measuring-performance)
+
+---
 # Chapter 1: Computer Abstractions and Technology
 
 ## 1.1 Introduction
