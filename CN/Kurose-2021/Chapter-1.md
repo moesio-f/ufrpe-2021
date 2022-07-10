@@ -116,7 +116,7 @@ In the following subsections, a few types of access networks are considered.
 
 #### Home Access: DSL, Cable, FTTH, and 5G Fixed Wireless
 
-> Today, the two most prevalent types of broadband residential access are **digital subscriber lines (DSL)** and cable.
+> Today, the two most prevalent types of broadband residential access are **digital subscriber lines (DSL)** and **cable**.
 
 ![IMG](../Kurose-2021/imgs/1-5.png)
 
