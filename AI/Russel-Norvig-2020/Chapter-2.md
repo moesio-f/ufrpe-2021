@@ -7,6 +7,10 @@
   - [2.3 The Nature of Environments](#23-the-nature-of-environments)
     - [2.3.1 Specifying the task environment](#231-specifying-the-task-environment)
     - [2.3.2 Properties of task environments](#232-properties-of-task-environments)
+  - [2.4 The Structure of Agents](#24-the-structure-of-agents)
+    - [2.4.1 Agent programs](#241-agent-programs)
+    - [2.4.6 Learning agents](#246-learning-agents)
+    - [2.4.7 How the components of agent programs work](#247-how-the-components-of-agent-programs-work)
 
 
 ---
@@ -75,3 +79,40 @@ Thus, an agent agent is one that acts by the following:
 - **Static** vs **Dynamic** (the environment changes while the agent is deliberating).
 - **Discrete** vs **Continuous**: applied to the state, time, percepts and actions.
 - **Known** vs **Unknown**: prior knowledge.
+
+## 2.4 The Structure of Agents
+
+
+> The job o AI is to design an **agent program** which implements an agent function.
+> 
+> *agent = architecture + program*
+
+### 2.4.1 Agent programs
+
+> *The key challenge for AI is to find out how to write programs that, to the extent possible, produce rational behavior from a smallish program rather than from a vast table.*
+
+There are four basic kinds of agent programs:
+
+- Simple reflex agent: uses only the current percept to select an action;
+- Model-based reflex agent: keeps an *internal state*, with help of models (e.g., transition, sensor), of the environment that depends on the percept history;
+- Goal-based reflex agents;
+- Utility-based agents: uses an *utility function*;
+
+![IMG](imgs/2-9.png)
+
+![IMG](imgs/2-11.png)
+
+![IMG](imgs/2-13.png)
+
+![IMG](imgs/2-14.png)
+
+### 2.4.6 Learning agents
+
+> [...] The most important distinction is between the learning element, which is responsible for making improvements, and the performance element, which is responsible for selecting external actions.
+
+![IMG](imgs/2-15.png)
+
+### 2.4.7 How the components of agent programs work
+
+![IMG](imgs/2-16.png)
+
