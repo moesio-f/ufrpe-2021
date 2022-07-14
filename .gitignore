@@ -1,1 +1,5 @@
+# VSCode
 .vscode/
+
+# Utility tools
+*.tools/
