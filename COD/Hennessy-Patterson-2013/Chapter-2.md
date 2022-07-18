@@ -12,6 +12,14 @@
     - [Case/Switch Statement](#caseswitch-statement)
   - [2.8 Supporting Procedures in Computer Hardware](#28-supporting-procedures-in-computer-hardware)
       - [Using More Registers](#using-more-registers)
+      - [Allocating Space for New Data on the Stack](#allocating-space-for-new-data-on-the-stack)
+      - [Allocating Space for New Data on the Heap](#allocating-space-for-new-data-on-the-heap)
+  - [2.9 Communicating with People](#29-communicating-with-people)
+  - [2.10 MIPS Addressing for 32-bit Immediate and Addresses](#210-mips-addressing-for-32-bit-immediate-and-addresses)
+    - [32-Bit Immediate Operands](#32-bit-immediate-operands)
+    - [Addressing in Branches and Jumps](#addressing-in-branches-and-jumps)
+    - [MIPS Addressing Mode Summary](#mips-addressing-mode-summary)
+    - [Decoding Machine Language](#decoding-machine-language)
 
 ---
 # Chapter 2: Instructions: Language of the Computer
@@ -82,7 +90,7 @@ MIPS arithmetic operations can only use register, since this number is limited i
 
 > *Design Principle 3:* Good design demands good compromises.
 
-> The compromise chosen by the MIPS designers is to keep all instructions the same length, thereby requiring different kinds of instruction formats for different kinds of instructions. For example, the format above is called **R-type** (for register) or **R-format**. A second type of instruction format is called **I-type** (for immediate) or **I-format** and is used by the immediate and data transfer instructions. 
+> The compromise chosen by the MIPS designers is to keep all instructions the same length, thereby requiring different kinds of instruction formats for different kinds of instructions. For example, the format above is called **R-type** (for register) or **R-format**. A second type of instruction format is called **I-type** (for immediate) or **I-format** and is used by the immediate and data transfer instructions. The last type of instruction is called **J-format** (for jump instructions).
 
 ![IMG](imgs/2-mips-i-format.png)
 
@@ -114,8 +122,70 @@ Can be achieved either with conditional branches or with a **jump address table*
 
 ## 2.8 Supporting Procedures in Computer Hardware
 
-Can be implemented with **jump-and-link** instructions.
+Can be implemented with **jump-and-link** (`jal`) instructions. In general, the execution of a procedure is as follows:
+
+1. The parameters are put in a place where the procedure can access them;
+2. Control is transferred to the procedure;
+3. Storage resources needed for the procedure are acquired;
+4. The procedure performs the task;
+5. The procedure put the resultas in place where the calling program can access;
+6. Control is returned to the point of origin.
+
+> In addition to allocating these registers, MIPS assembly language includes an instruction just for the procedures: it jumps to an address and simultaneously saves the address of the following instruction in register `$ra`.
+> 
+> Implicit in the stored-program idea is the need to have a register to hold the address of the current instruction being executed. For historical reasons, this register is almost always called the **program counter**, abbreviated PC in the MIPS architecture.
 
 #### Using More Registers
 
 The idea is to use the main memory with a **stack** and saving the **stack pointer** into the register `$sp`.
+
+#### Allocating Space for New Data on the Stack
+
+> The final complexity is that the stack is also used to store variables that are local to the procedure but do not fit in registers, such as local arrays or structures.
+> 
+>  The segment of the stack containing a procedure’s saved registers and local variables is called a procedure frame or activation record. 
+
+![IMG](imgs/2-12.png)
+
+#### Allocating Space for New Data on the Heap
+
+> In addition to automatic variables that are local to procedures, C programmers need space in memory for static variables and for dynamic data structures.
+
+![IMG](imgs/2-13.png)
+
+> In the 2012 version, we can find the MIPS memory layout in details.
+
+## 2.9 Communicating with People
+
+> MIPS has load/store to bytes and halfwords.
+
+![IMG](imgs/2-15.png)
+
+
+## 2.10 MIPS Addressing for 32-bit Immediate and Addresses
+
+> Although keeping all MIPS instructions 32 bits long simplifies the hardware, there are times where it would be convenient to have a 32-bit constant or 32-bit address.
+
+### 32-Bit Immediate Operands
+
+> Although constants are frequently short and fit into the 16-bit field, sometimes they are bigger. The MIPS instruction set includes the instruction load upper immediate (`lui`) specifically to set the upper 16 bits of a constant in a register, allowing a subsequent instruction to specify the lower 16 bits of the constant.
+
+### Addressing in Branches and Jumps
+
+> The MIPS jump instructions have the simplest addressing. They use the final MIPS instruction format, called the **J-type**, which consists of 6 bits for the operation field and the rest of the bits for the address field.
+
+However, branching instructions only have 16 bits for address. Thus, MIPS provides multiple addressing modes.
+
+### MIPS Addressing Mode Summary
+
+1. **Immediate addressing**: the operand is a constant within the instruction itself;
+2. **Register addressing**: the operand is a register;
+3. **Base** or **displacement addressing**: the operand is at the memory location whose address is the sum of a register and a constant in the instruction;
+4. **PC-relative addressing**: the branch address is the sum of the PC and a constant in the instruction;
+5. **Pseudodirect addressing**: the jump address is the 26 bits of the instruction concatenated with the upper bits of the PC.
+
+![IMG](imgs/2-18.png)
+
+### Decoding Machine Language
+
+> Sometimes you are forced to reverse-engineer machine language to create the original assembly language. One example is when looking at "core dump".
