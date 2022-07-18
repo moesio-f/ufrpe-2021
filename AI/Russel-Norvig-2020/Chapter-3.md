@@ -9,6 +9,12 @@
     - [3.3.3 Redundant Path](#333-redundant-path)
     - [3.3.4 Measuring problem-solving performance](#334-measuring-problem-solving-performance)
   - [3.4 Uninformed Search Strategies](#34-uninformed-search-strategies)
+    - [3.4.1 Breadth-first search](#341-breadth-first-search)
+    - [3.4.2 Dijkstra's algorithm or uniform-cost search](#342-dijkstras-algorithm-or-uniform-cost-search)
+    - [3.4.3 Depth-first search and the problem of memory](#343-depth-first-search-and-the-problem-of-memory)
+    - [3.4.4 Depth-limited and iterative deepening search](#344-depth-limited-and-iterative-deepening-search)
+    - [3.4.5 Bidirectional search](#345-bidirectional-search)
+    - [3.4.6 Comparing uninformed search algorithms](#346-comparing-uninformed-search-algorithms)
 
 ---
 # Chapter 3: Solving Problems by Searching
@@ -83,3 +89,29 @@ In order to avoid redundant paths, algorithms can: (i) remember all previously r
 > To be complete, a search algorithm must be **systematic** in the way it explores an infinite state space, making sure it can eventually reach any state that is connected to the initial state.
 
 ## 3.4 Uninformed Search Strategies
+
+### 3.4.1 Breadth-first search
+
+> When all actions have the same cost, an appropriate strategy is **breadth-first search**, in which the root node is expanded first, then all the successors of the root node are expanded next, then their successors, and so on. This is a systematic search strategy that is therefore complete even on infinite state spaces.
+
+### 3.4.2 Dijkstra's algorithm or uniform-cost search
+
+> When actions have different costs, an obvious choice is to use best-first search where the evaluation function is the cost of the path from the root to the current node. This is called Dijkstra’s algorithm or uniform-cost search.
+
+### 3.4.3 Depth-first search and the problem of memory
+
+> **Depth-first search** always expands the deepest node in the frontier first.
+
+### 3.4.4 Depth-limited and iterative deepening search
+
+> To keep depth-first search from wandering down an infinite path, we can use **depth-limited search**, a version of depth-first search in which we supply a depth limit, $l$, and treat all nodes at depth $l$ as if they had no successors
+> 
+> **Iterative deepening search** solves the problem of picking a good value for $l$ by trying all values until either a solution is found, or the depth-limited search returns the failure value rather than the cutoff value.
+
+### 3.4.5 Bidirectional search
+
+> The algorithms we have covered so far start at an initial state and can reach any one of multiple possible goal states. An alternative approach called **bidirectional search** simultaneously searches forward from the initial state and backwards from the goal state(s), hoping that the two searches will meet. 
+
+### 3.4.6 Comparing uninformed search algorithms
+
+![IMG](imgs/3-15.png)
