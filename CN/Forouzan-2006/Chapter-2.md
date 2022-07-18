@@ -2,6 +2,10 @@
   - [2.2 The OSI Model](#22-the-osi-model)
   - [2.3 Layers in the OSI Model](#23-layers-in-the-osi-model)
   - [2.4 TCP/IP Protocol Suite](#24-tcpip-protocol-suite)
+  - [2.5 Addressing](#25-addressing)
+    - [Physical Addresses](#physical-addresses)
+    - [Logical Addresses](#logical-addresses)
+    - [Port Addresses](#port-addresses)
 
 ---
 # Chapter 2: Network Models
@@ -40,3 +44,21 @@
 > This model was defined with 4 layers: host-to-network, internet, transport, and application.
 
 ![IMG](imgs/2-16.png)
+
+## 2.5 Addressing
+
+> Four levels of addresses are used in an internet employing the TCP/IP protocols: **physical** (link) address; **logical** (IP) address; **port** address; and specific addresses.
+
+![IMG](imgs/2-18.png)
+
+### Physical Addresses
+
+Lowest level, link address, it's defined by its LAN or WAN. Such addresses have authority over the network.
+
+### Logical Addresses
+
+Independent from the underlying physical networks. It is a universal addressing system, in which each host can be identified uniquely. No two publicly available addressed and visible hosts can have the same IP address.
+
+### Port Addresses
+
+Port addresses identify process with ports.
