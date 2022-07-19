@@ -3,3 +3,6 @@
 
 # Utility tools
 *.tools/
+
+# Temporary files
+.temp/
