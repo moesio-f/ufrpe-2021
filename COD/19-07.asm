@@ -21,7 +21,7 @@ la $a1, buffer # definindo para onde ler
 li $a2, 32 # quantidade de leitura
 syscall
 
-move $s1, $v0 # guardando quantiadde de caracteres lido
+move $s1, $v0 # guardando quantidade de caracteres lido
 
 li $v0, 16 # fechar um arquivo
 move $a0, $s0 # carregando file desciptor
