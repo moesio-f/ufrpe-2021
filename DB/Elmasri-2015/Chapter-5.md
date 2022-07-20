@@ -40,21 +40,14 @@
 
 ### 5.1.3 Relational Model Notation
 
-> A relation schema $R$ of degree $n$ is denoted by $R(A_1, A_2, \dots, A_n)$.
-> 
-> $Q$, $R$, and $S$ denote relation names.
-> 
-> $q$, $r$, and $s$ denote relation states.
-> 
-> $t$, $v$, and $u$ denote tuples.
-> 
-> An attribute $A$ can be qualified with the relation name $R$ to which it belong by using a dot (i.e., $R.A$).
-> 
-> An n-tuple $t$ in a relation $r(R)$ is denoted by $t = \langle v_1, v_2, \dots, v_n\rangle$, where $v_i \in A_i$.
-> 
-> Both $t[A_i]$ and $t.A_i$ refer to the value $v_i$ in $t$ for the attribute $A_i$.
-> 
-> Both $t[A_u, A_w, \dots, A_z]$ and $t.(A_u, A_w, \dots, A_z)$ refer to the sub-tuple of values $\langle v_u, v_w, \dots, v_z \rangle$ from $t$.
+> - A relation schema $R$ of degree $n$ is denoted by $R(A_1, A_2, \dots, A_n)$.
+> - $Q$, $R$, and $S$ denote relation names.
+> - $q$, $r$, and $s$ denote relation states.
+> - $t$, $v$, and $u$ denote tuples.
+> - An attribute $A$ can be qualified with the relation name $R$ to which it belong by using a dot (i.e., $R.A$).
+> - An n-tuple $t$ in a relation $r(R)$ is denoted by $t = \langle v_1, v_2, \dots, v_n\rangle$, where $v_i \in A_i$.
+> - Both $t[A_i]$ and $t.A_i$ refer to the value $v_i$ in $t$ for the attribute $A_i$.
+> - Both $t[A_u, A_w, \dots, A_z]$ and $t.(A_u, A_w, \dots, A_z)$ refer to the sub-tuple of values $\langle v_u, v_w, \dots, v_z \rangle$ from $t$.
 
 ## 5.2 Relational Model Constraints and Relational Database Schemas
 
