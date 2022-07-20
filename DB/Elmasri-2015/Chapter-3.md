@@ -26,7 +26,7 @@ The database design process consists of many steps.
 3. The **implementation** step uses a commercial DBMS with the conceptual schema to transform the high-level data model into the implementation data model (this step is called **logical design** or **data model mapping**).
 4. The last step is the **physical design**, in which the internal storage structure, file organizations, indexes, access paths, and physical design parameters are specified.
 
-![IMG](../Elmsari-2015/imgs/3-1.png)
+![IMG](imgs/3-1.png)
 
 ## 3.3 Entity Types, Entity Sets, Attributes and Keys
 

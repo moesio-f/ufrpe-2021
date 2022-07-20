@@ -78,7 +78,7 @@ The goal of this architecture is to separe the user application from the physica
 
 > While **schemas** provides actual descriptions of databases, **data models** provide the tools and concepts to conceive such description.
 
-![IMG](../Elmsari-2015/imgs/2-2.png)
+![IMG](imgs/2-2.png)
 
 > Notice that the three schemas are only descriptions of data; the actual data is stored at the physical level only. In the three-schema architecture, each user group refers to its own external schema. Hence, the DBMS must transform a request specified on an external schema into a request against the conceptual schema, and then into a request on the internal schema for processing over the stored database. 
 >
@@ -144,7 +144,7 @@ There mainly two types of DMLs:
 
 >  the runtime database processor executes (1) the privileged commands, (2) the executable query plans, and (3) the canned transactions with runtime parameters. It works with the system catalog and may update it with statistics. It also works with the stored data manager, which in turn uses basic operating system services for carrying out low-level input/output (read/write) operations between the disk and main memory.
 
-![IMG](../Elmsari-2015/imgs/2-3.png)
+![IMG](imgs/2-3.png)
 
 ### 2.4.2 Database System Utilities
 
@@ -157,13 +157,13 @@ There mainly two types of DMLs:
 
 ### 2.5.1 Centralized DBMSs Architecture
 
-![IMG](../Elmsari-2015/imgs/2-4.png)
+![IMG](imgs/2-4.png)
 
 ### 2.5.2 Basic Client/Server Architecture
 
-![IMG](../Elmsari-2015/imgs/2-5.png)
+![IMG](imgs/2-5.png)
 
-![IMG](../Elmsari-2015/imgs/2-6.png)
+![IMG](imgs/2-6.png)
 
 ### 2.5.3 Two-Tier Client/Server Architectures for DBMSs
 
@@ -171,7 +171,7 @@ There mainly two types of DMLs:
 
 ### 2.5.4 Three-Tier and n-Tier Architectures for Web Applications
 
-![IMG](../Elmsari-2015/imgs/2-7.png)
+![IMG](imgs/2-7.png)
 
 ## 2.6 Classification of Database Management Systems
 

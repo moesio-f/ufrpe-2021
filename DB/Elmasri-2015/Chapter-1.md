@@ -42,7 +42,7 @@ DBMSs also **protects** (against hardware/software malfunction, system protectio
 
 > A **database system** is the database plus a DBMS.
 
-![IMG](../Elmsari-2015/imgs/1-1.png)
+![IMG](imgs/1-1.png)
 
 ## 1.2 An Example
 
