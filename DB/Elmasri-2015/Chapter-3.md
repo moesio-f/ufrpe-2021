@@ -3,7 +3,7 @@
   - [3.3 Entity Types, Entity Sets, Attributes and Keys](#33-entity-types-entity-sets-attributes-and-keys)
     - [3.3.1 Entities and Attributes](#331-entities-and-attributes)
     - [3.3.2 Entity Types, Entity Sets, Keys and Value Sets](#332-entity-types-entity-sets-keys-and-value-sets)
-  - [3.4 Relationship Types, Relationship Sets, Roles, adn Structural Constraints](#34-relationship-types-relationship-sets-roles-adn-structural-constraints)
+  - [3.4 Relationship Types, Relationship Sets, Roles, and Structural Constraints](#34-relationship-types-relationship-sets-roles-and-structural-constraints)
     - [3.4.1 Relationship Types, Sets, and Instances](#341-relationship-types-sets-and-instances)
     - [3.4.2 Relationship Degree, Role Names, and Recursive Relationships](#342-relationship-degree-role-names-and-recursive-relationships)
     - [3.4.3 Constraints on Binary Relationship Types](#343-constraints-on-binary-relationship-types)
@@ -62,7 +62,7 @@ The database design process consists of many steps.
 
 > Each simple attribute of an entity type is associated with a **value set** (**domain**), which specifies the set of possible values that can be assigned to that attribute.
 
-## 3.4 Relationship Types, Relationship Sets, Roles, adn Structural Constraints
+## 3.4 Relationship Types, Relationship Sets, Roles, and Structural Constraints
 
 ### 3.4.1 Relationship Types, Sets, and Instances
 

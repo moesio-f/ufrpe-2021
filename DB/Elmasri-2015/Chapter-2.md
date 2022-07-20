@@ -195,8 +195,8 @@ Classification by number of sites over which the database is distributed:
 
 - **Centralized**, single computer.
 - **Distributed**, computers distributed over a computer network.
-- **Homogeneous**, use the same DBMS software at all sites;
-- **Heterogenous**, use different DBMS software.
+  - **Homogeneous**, use the same DBMS software at all sites;
+  - **Heterogenous**, use different DBMS software.
 
 Classification by cost. Classification by types of access path. Finally, **general purpose** or **special purpose**.
 
@@ -210,7 +210,7 @@ Classification by cost. Classification by types of access path. Finally, **gener
 > 
 > The **graph data model** stores objects as graph nodes and relationships among objects as directed graph edges.
 > 
-> The column-based data models store the columns of rows clustered on disk pages for fast access and allow multiple versions of the data.
+> The **column-based data models** store the columns of rows clustered on disk pages for fast access and allow multiple versions of the data.
 > 
 > The **network model** represents data as record types and also represents a limited type of 1:N relationship, called a set type.
 > 
