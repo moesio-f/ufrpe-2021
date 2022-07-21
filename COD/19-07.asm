@@ -38,32 +38,3 @@ syscall
 li $v0, 4
 la $a0, buffer # printar buffer
 syscall
-
-# Objetivo: fazer leitura de uma lista e colocar na ordem crescente
-
-move $s0, $t0 # indice atual de list
-move $s1, $t0 # indice atual de list_sorted
-lw $s2, list_size # tamanho da lista
-move $s3, $t0 # tamanho atual de list_sorted
-
-j insertion_sort
-
-it_outer:
-	lw $s3, list($s0) # elemento atual de list
- 	addi $s0, $s0 , 1 # incrementar indíce
- 	
-it_inner:
-	bgt $s1, $s3, end
-	stop:
-
-insertion_sort:
-	beq $s0, $s2, end
-	
-	j it_outer
-	j it_inner
-	j insertion_sort
-
-end:
-	
-
-
