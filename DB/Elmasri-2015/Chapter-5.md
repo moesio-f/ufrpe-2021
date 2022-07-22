@@ -56,7 +56,7 @@
 > 1. Constraints that are inherent in the data model (**model-based constraints** or **implicit constraints**).
 > 2. Constraints that can be directly expressed in the schemas of the data model, typically by specifying them in the DDL (**schema-based constraints** or **explicit-constraints**).
 > 3. Constraints that cannot be directly expressed in the schemas of the data
-model, and hence must be expressed and enforced by the application programs or in some other way(**application-based** or **semantic**
+model, and hence must be expressed and enforced by the application programs or in some other way (**application-based** or **semantic**
 **constraints** or **business rules**).
 
 ### 5.2.1 Domain Constraint
@@ -65,7 +65,7 @@ model, and hence must be expressed and enforced by the application programs or i
 
 ### 5.2.2 Key Constraints and Constraints on NULL Values
 
-In general, all tuples in a relation are distinct. However, there are **subsets if attributes** whose tuples must have different values. That is, $t_1[SK] \neq t_2[SK]$ if $SK$ (**superkey**) is such subset.
+In general, all tuples in a relation are distinct. However, there are **subsets of attributes** whose tuples must have different values. That is, $t_1[SK] \neq t_2[SK]$ if $SK$ (**superkey**) is such subset.
 
 >  A key $k$ of a relation schema $R$ is a superkey of $R$ with the additional property that removing any attribute $A$ from $K$ leaves a set of attributes $K'$ that is not a superkey of $R$ any more.
 > 
@@ -88,7 +88,7 @@ In general, all tuples in a relation are distinct. However, there are **subsets 
 > A set of attributes $\mathrm{FK}$ in relation schema $R_1$ is a **foreign key** of $R_1$ (**referencing relation**) that references relation $R_2$ (**referenced relation**) if it satisfies:
 > 
 > 1. The attributes in $\mathrm{FK}$ have the same domain(s) as the primary key attributes $\mathrm{PK}$ of $R_2$; the attributes $\mathrm{FK}$ are said to reference or refer to the relation $R_2$.
-> 2. A value of $\mathrm{FK}$ in a tuple t1 of the current state $r_1(R_1)$ either occurs as a value of PK for some tuple t2 in the current state $r_2(R_2)$ or is NULL. In the former case, we have $t_1[\mathrm{FK}] = t_2[\mathrm{FK}]$, and we say that the tuple $t_1$ references or refers to the tuple $t_2$.
+> 2. A value of $\mathrm{FK}$ in a tuple $t_1$ of the current state $r_1(R_1)$ either occurs as a value of PK for some tuple $t_2$ in the current state $r_2(R_2)$ or is NULL. In the former case, we have $t_1[\mathrm{FK}] = t_2[\mathrm{FK}]$, and we say that the tuple $t_1$ references or refers to the tuple $t_2$.
 
 ### 5.2.5 Other Types of Constraints
 
