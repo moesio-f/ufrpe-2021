@@ -36,7 +36,7 @@ The database design process consists of many steps.
 
 > An **entity** is a thing or object in the real world with independent existence.
 > 
-> Ever entity has **attributes**, which are the properties that describe it. In ER diagrams, attributes names are enclosed in ovals and are attached to its entity type by straight lines.
+> Every entity has **attributes**, which are the properties that describe it. In ER diagrams, attributes names are enclosed in ovals and are attached to its entity type by straight lines.
 
 > **Composite attributes** can be divided into smaller subparts which represent more basic attributes with independent meanings. They can usually form a hierarchy.
 > 
@@ -88,7 +88,7 @@ The database design process consists of many steps.
 
 > The **participation constraint** (a.k.a, **minimum cardinality constraint**) specifies whether the existence of an entity dependes on its being related to another entity via the relationship type.
 > 
-> It can be either **total**, where every entity must participate in the must be in the relationship type, or **partial**, some part of the entities must ne i the relationship type.
+> It can be either **total**, where every entity must participate in the must be in the relationship type, or **partial**, some part of the entities must be in the relationship type.
 
 ### 3.4.4 Attributes of Relationship Types
 
