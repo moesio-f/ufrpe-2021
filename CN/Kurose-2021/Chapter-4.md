@@ -84,9 +84,9 @@ Each IP address is 32 bits long, and are usually written in **dotted-decimal not
 
 > To determine the subnets, detach each interface from its host or router, creating islands of isolated networks, with interfaces terminating the end points of the isolated networks. Each of these isolated networks is called a **subnet**.
 
-There's a useful notation for indicating the subnet IP address (**subnet mask**): `A.B.C.D/X` where `X` is the number of bits of the dotted-decimal notation that makes the subnet address (shared by all interfaces in that subnet).
+There's a useful notation for indicating the subnet IP address: `A.B.C.D/X` where `X` (**subnet mask**) is the number of bits of the dotted-decimal notation that makes the subnet address (shared by all interfaces in that subnet).
 
-> The Internet’s address assignment strategy is known as **Classless Interdomain Routing (CIDR)**, it generalizes the notion of subnet addressing. . As with subnet addressing, the 32-bit IP address is divided into two parts and again has the dotted-decimal form `a.b.c.d/x`, where `x` indicates the number of bits in the first part of the address.
+> The Internet’s address assignment strategy is known as **Classless Interdomain Routing (CIDR)**, it generalizes the notion of subnet addressing. As with subnet addressing, the 32-bit IP address is divided into two parts and again has the dotted-decimal form `a.b.c.d/x`, where `x` indicates the number of bits in the first part of the address.
 >
 > The `x` most significant bits of an address of this form constitute the network portion of the IP address, and are often referred to as the **prefix** of the address.
 
