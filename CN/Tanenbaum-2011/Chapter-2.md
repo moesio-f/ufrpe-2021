@@ -21,7 +21,7 @@
 
 The most straightforward form of digital modulation, it represents bits as a positive and negative "voltages".
 
-> We call the rate at which the signal changes the **symbol rate** (also called **badu rate**) to distinguish it from the **bit rate** (symbol rate multiplied by the number of bits per symbol).
+> We call the rate at which the signal changes the **symbol rate** (also called **baud rate**) to distinguish it from the **bit rate** (symbol rate multiplied by the number of bits per symbol).
 
 ### 2.5.2 Passband Transmission
 
