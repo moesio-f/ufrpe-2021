@@ -88,7 +88,7 @@ The database design process consists of many steps.
 
 > The **participation constraint** (a.k.a, **minimum cardinality constraint**) specifies whether the existence of an entity dependes on its being related to another entity via the relationship type.
 > 
-> It can be either **total**, where every entity must participate in the must be in the relationship type, or **partial**, some part of the entities must be in the relationship type.
+> It can be either **total**, where every entity must participate in the relationship type, or **partial**, some part of the entities must be in the relationship type.
 
 ### 3.4.4 Attributes of Relationship Types
 
