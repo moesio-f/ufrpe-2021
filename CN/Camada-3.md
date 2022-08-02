@@ -47,6 +47,18 @@
   - Roteador (e.g., endereço inalcançável, descarte por necessitar fragmentação, tempo excedido)
   - Host (e.g., protocolo não ativo, porta não configurada, remontagem e tempo excedido)
 
+# Wireshark e Shell
+
+- `ip address show` para obtermos uma lista das interfaces e seus respectivos IPs e endereços MAC.
+  - `enpXsY`: interface Ethernet (e.g., enp12s0).
+  - `wlpXsYfZ`: interface Wi-Fi (e.g., wlp0s20f3).
+  - `lo`: interface loopback.
+- `ip neighbour show` para obtermos a tabela ARP.
+- `io route`
+- No lugar de utilizarmos os comandos básicos para *sniffing*, melhor usar o Wireshark.
+- Iniciando Wireshark para uma dada interface: `wireshark -i {interface} -k`
+  - Para sistemas Linux, adicionar o usuário ao grupo `wireshark`.
+
 ---
 
 OBS:.
