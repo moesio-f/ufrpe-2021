@@ -40,10 +40,10 @@
 
 ## 1.5 Technologies for Building Processors and Memory
 
-![IMG](../Hennesy-Patterson-2013/imgs/1-10.png)
+![IMG](imgs/1-10.png)
 
 > A **transistor** is an on/off switch controlled by electric signals.
 > 
 > A **very large integrated (VLSI) circuit** is a device containing hundreds of thousands to millions of transistors.
 
-![IMG](../Hennesy-Patterson-2013/imgs/1-12.png)
+![IMG](imgs/1-12.png)

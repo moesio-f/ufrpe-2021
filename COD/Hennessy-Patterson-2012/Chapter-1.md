@@ -29,7 +29,7 @@ computing technologies is driven by this class of computing.
 
 ### Understanding Performance
 
-![IMG](../Henessy-Patterson-2012/imgs/UP-1.png)
+![IMG](imgs/UP-1.png)
 
 ## 1.2 Below Your Program
 
@@ -37,7 +37,7 @@ computing technologies is driven by this class of computing.
 
 System software can either be an **operation system** or a **compiler**.
 
-![IMG](../Henessy-Patterson-2012/imgs/1-2.png)
+![IMG](imgs/1-2.png)
 
 ### From a High-Level Language to the Language of Hardware
 
@@ -47,7 +47,7 @@ An **assembler** is a program that translates symbolic version of instructions i
 
 **High level programming languages** enable to write programs closer to natural language than assembly language.
 
-![IMGS](../Henessy-Patterson-2012/imgs/1-3.png)
+![IMGS](imgs/1-3.png)
 
 > High-level programming languages offer several important benefits. First, they allow the programmer to think in a more natural language [...] Moreover, they allow languages to be designed according to their intended use.
 
@@ -57,7 +57,7 @@ An **assembler** is a program that translates symbolic version of instructions i
 
 > The five classic components of a computer are **input**, **output**, **memory**, **datapath**, and **control**, with the last two sometimes combined and called the **processor**.
 
-![IMG](../Henessy-Patterson-2012/imgs/1-4.png)
+![IMG](imgs/1-4.png)
 
 > [...]  the **instruction set architecture**, or simply **architecture**, of a computer, includes anything programmers need to know to make a binary machine language program work correctly, including instructions, I/O devices, and so on. 
 
