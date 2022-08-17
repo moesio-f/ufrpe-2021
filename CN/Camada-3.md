@@ -1,5 +1,35 @@
 # Camada de Redes
 
+
+## Revisão
+
+- O protocolo IP é um datagrama, envia informações sem se preocupar se essa será recebida ou não. Outros protocolos podem prover tal garantia, mas o IP não.
+- Procolo IP também permite fragmentar informações para lidar com diferentes MTUs (maximum transmission unit).
+- O protocolo IP só checa erros dos cabeçalhos, erro em dados são protocolos de camadas superiores. 
+
+![IMG](imgs/IP-Header.png)
+
+
+- Versão: IPv4? IPv6?
+- IHL: tamanho do cabeçalho em números de bytes.
+- TOS: tipo do serviço que pode ser usado pelo roteador para priorização (na prática, ignorado).
+- Comprimento Total: comprimento do datagrama em bytes (máximo de 64Kb com cabeçalhos).
+- Identificação: identificar fragmentos.
+- Flags: sinalizadores (3 bits) sobre o pacote (primeiro reservado, segundo "don't fragment?", terceiro "more fragments?").
+- Offset: como ordenar os fragmentos?
+- TTL: time-to-live, cada hop (roteador) decrementa.
+- Protocolo: qual protocolo da camada superior? onde devemos mandar o payload?
+- Checksum: checagem apenas do cabeçalho.
+- Endereço Origem e Destino: 32-bits.
+- Podem ser inseridos outros campos de informação ao final.
+
+
+![IMG](imgs/IP-Fragmentation.jpg)
+
+- Fragmentação IP:
+  - Na prática, o tamanho máximo é definido de acordo com o hardware da rede. Na teoria, 64KB é o máximo.
+  - MTU determina o máximo que um meio consegue enviar. Assim, em diferentes momentos é necessário fragmentar o pacote para ser passado dentro de uma rede.
+
 ## Endereçamento IP
 
 - Uma das principais características é o endereçamento lógico: identificação de redes e *hosts*.
@@ -47,6 +77,29 @@
   - Roteador (e.g., endereço inalcançável, descarte por necessitar fragmentação, tempo excedido)
   - Host (e.g., protocolo não ativo, porta não configurada, remontagem e tempo excedido)
 
+## Roteamento
+
+- Roteadores aprendem caminhos, recebem pacotes e enviam caminhos. Esse processo é chamado *roteamento*.
+- Rotas estáticas identificam manualmente possíveis caminhos. Rotas automáticas identificam caminhos de acordo com os dispositivos conectados. Roteamento dinâmico troca informação com roteadores vizinhos.
+- RIB: Routing Information Base
+  - Contém as redes conhecidas, seu endereço (prefixo), e o próximo roteador que consegue chegar a essa rede (next hop).
+- FIB: Forwarding Information Base
+  - Apenas as melhores rotas são gravadas, além de armazenar as interfaces que devem receber esse pacote.
+  - A escolha da "melhor rota" depende de múltiplos fatores: topologia da rede, políticas de roteamento, modo de aprendizado, métricas.
+  - Escolha da rota mais específica.
+- Tráfego de entrada em uma rede depende de como a rede destino determinou esse processo (*informações de roteamento*).
+- Protocolos de roteamento interno (IGP) e externo (EGP).
+- Alternativas para IGP: OSPF e ISIS.
+  - Possuem a menor tabela possível.
+  - Apenas ensinam aos roteadores dentro de uma rede como se comunicarem entre si.
+- Alternativas EGP: BGP
+  - Entre ASs.
+  - Rotas para internet.
+  - Clientes dentro da própria rede.
+  - Não deve depender da topologia interna de um AS (autonomous system).
+  - Configuração manual.
+- Quando lidamos com IPv6 e IPv4, podemos ter pilhas duplas: manter tabelas para IPv6 e outras para IPv4.
+
 # Wireshark e Shell
 
 - `ip address show` para obtermos uma lista das interfaces e seus respectivos IPs e endereços MAC.
@@ -64,3 +117,5 @@
 OBS:.
 
 > A principal tarefa da camada de *enlace* é fazer com que o meio de transmissão seja transparente para a camada de *rede* (i.e., não precisa se preocupar com o meio físico).
+> 
+> As principais tarefa da camada de *rede* são: endereçamento lógico e fragmentação.
