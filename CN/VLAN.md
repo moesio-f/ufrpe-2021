@@ -39,6 +39,8 @@ O padrão IEEE 802.1Q altera a estrutura do quadro Ethernet para permitir que *V
 > https://en.wikipedia.org/wiki/VLAN_Trunking_Protocol
 > 
 > https://www.ciscopress.com/articles/article.asp?p=29803&seqNum=3 
+> 
+> https://www.ciscopress.com/articles/article.asp?p=2990405&seqNum=2
 
 VTP permite que múltiplos switches compartilhem informações sobre a configuração das VLANs utilizadas. A ideia, é que cada switch mantenha uma tabela com a configuração das VLANs e um número de *provisão* (*provision*), assim, quando um switch atualiza sua tabela esse número é incrementado.
 
@@ -73,3 +75,16 @@ Requisitos:
 >
 > Trunk links must be configured to allow trunking on each end of the link.
 
+## Dynamic Trunking Protocol (DTP)
+
+> *The Dynamic Trunking Protocol (DTP) is a proprietary networking protocol developed by Cisco Systems for the purpose of negotiating trunking on a link between two VLAN-aware switches, and for negotiating the type of trunking encapsulation to be used. It works on Layer 2 of the OSI model. VLAN trunks formed using DTP may utilize either IEEE 802.1Q or Cisco ISL trunking protocols.*
+> 
+> *DTP should not be confused with VTP, as they serve different purposes. VTP communicates VLAN existence information between switches. DTP aids with trunk port establishment. Neither protocol transmits the data frames that trunks carry.*
+
+Switch port modes:
+
+- **Access**: Puts the Ethernet port into permanent nontrunking mode and negotiates to convert the link into a nontrunk link. The Ethernet port becomes a nontrunk port even if the neighboring port does not agree to the change.
+- **Trunk**: Puts the Ethernet port into permanent trunking mode and negotiates to convert the link into a trunk link. The port becomes a trunk port even if the neighboring port does not agree to the change.
+- **Dynamic Auto**: Makes the Ethernet port willing to convert the link to a trunk link. The port becomes a trunk port if the neighboring port is set to trunk or dynamic desirable mode. This is the default mode for some switchports.
+- **Dynamic Desirable**: Makes the port actively attempt to convert the link to a trunk link. The port becomes a trunk port if the neighboring Ethernet port is set to trunk, dynamic desirable or dynamic auto mode.
+- **No-negotiate**: Disables DTP. The port will not send out DTP frames or be affected by any incoming DTP frames. If you want to set a trunk between two switches when DTP is disabled, you must manually configure trunking using the (switchport mode trunk) command on both sides.
