@@ -99,20 +99,54 @@ Podemos fixar um $H$ razoável para determinar $S_1$ de acordo com 2 pontos:
 
 ## Tecnologias de Memória
 
-- CMOS (*Complementary Metal-Oxide Semicondutor*)
-- SRAM (*Static random access memory*)
-- DRAM (*Dynamic random access memory*)
-- FLASH
+- CMOS (*Complementary Metal-Oxide Semicondutor*, volátil)
+- SRAM (*Static random access memory*, volátil)
+- DRAM (*Dynamic random access memory*, volátil)
+- FLASH (não volátil)
   - NAND Flash
   - NOR Flash
-- Discos e Fitas magnéticas
+- Discos e Fitas magnéticas (não volátil)
 
 ### SRAM
 
-- Modelo simples de acesso a dados;
+- Modelo simples de acesso a dados, usada como *cache*;
 - Geralmente uma única porta de acesso para leitura ou escrita;
 - Volátil e enquanto energia for aplicada retém os dados;
 - Requer 4-6 transistores por bit para ser implementada;
 
-> Transistor: elemento semicondutor, substitui as válvulas.
->  
+> Transistor: elemento semicondutor, substitui as válvulas. Permite armazenar informações (e.g., latch/flip-flop).
+
+- Número de posições endereçáveis é a **altura**;
+- Número de bits por posição endereçável é a **largura**;
+- Para ler ou escrever, utilizamos o *chip select*;
+- Para leitura, ativamos o *output enable*;
+- Para escrita, colocamos o dado em *Din* e ativamos o *write enable*;
+  - Existe uma duração mínima para conseguir escrever;
+  - O controle dos sinais e do tempo é realizado por outros dispositivos (e.g., processador).
+- SRAMs grandes não podem ser implementadas tal qual *regfiles* (MUX precisariam ser gigantescos, por exemplo, 64K para 1).
+  - Assim, utilizamos uma saída de dado em comum;
+  - Todavia, isso pode gerar problemas (e.g., curto-circuito).
+  - Precisamos fazer com que locais que não estejam sido lidos se mantenham num estado de alta impedância: *tristate buffer* (0, 1, alta impedância = X);
+  - Exemplo usando `Logsim` e comparando diferentes possibilidades;
+  - Decodificação em duas etapas é o mais viável: (1) decodificação de X para Y; (2) MUX de Y para 1.
+
+### DRAM
+
+- Primária, mais distante na hierarquia;
+- Necessário 1 transistor para acessar a carga;
+- Mais densas e mais baratas que a SRAM;
+- A carga elétrica nos capacitores descarrega gradualmente;
+- DRAM requer um circuito de atualização de memória extera que reescreve periodicamente os dados nos capacitores, restaurando-os à sua carga original (*memory refresh*); 
+- 
+
+
+
+---
+
+Tópicos a revisar:
+
+- Processadores multi-núcleos;
+- Lei de Amdahl;
+- Pipelining;
+- Superescalar;
+- Escalar;
