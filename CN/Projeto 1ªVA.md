@@ -104,8 +104,6 @@ O menor endereço para essa sub-rede com a máscara `/26` que podemos utilizar d
 
 Seguindo os passos até o momento, deveríamos ter algo similar ao da figura:
 
-![IMG](GNS3-Initial.jpeg)
-
 ### 4. Configuração do EtherSwitch: VLANs
 
 > Usamos `wr` em qualquer momento para salvarmos as configurações.
