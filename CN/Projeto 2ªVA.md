@@ -2,7 +2,10 @@
   - [1. Layout: roteadores, switches, hosts](#1-layout-roteadores-switches-hosts)
   - [2. Roteamento: OSPF vs RIP?](#2-roteamento-ospf-vs-rip)
     - [Configuração do OSPF para o C7200](#configuração-do-ospf-para-o-c7200)
-    - [Configuração do Firewall para o C7200](#configuração-do-firewall-para-o-c7200)
+  - [2. Servidor DNS](#2-servidor-dns)
+  - [3. Servidor WEB](#3-servidor-web)
+  - [4. Client/Server](#4-clientserver)
+  - [5.  Configuração do Firewall para o C7200](#5--configuração-do-firewall-para-o-c7200)
   - [Máscaras Wildcard](#máscaras-wildcard)
 
 ---
@@ -80,7 +83,13 @@ Inicialmente, vamos escolher o **OSPFv2** (apesar dele possuir uma configuraçã
    - Ademais, também precisamos indicar que esse roteador possui a rota padrão (*Gateway Last Resort*): `default-information originate`
    - Adicionalmente, podemos colocar a interface serial desse roteador como sendo dentro do NAT (`ip nat inside`). 
 
-### Configuração do Firewall para o C7200
+## 2. Servidor DNS
+
+## 3. Servidor WEB
+
+## 4. Client/Server
+
+## 5.  Configuração do Firewall para o C7200
 
 - Vamos bloquear ICMPs;
 - Vamos bloquear alguns hosts;
