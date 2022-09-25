@@ -117,11 +117,11 @@ Seguindo os passos até o momento, deveríamos ter algo similar ao da figura:
   - Devemos agora entrar na configuração das interfaces: `interface range FastEthernet 1/X - Y`
   - Agora, podemos definir qual o modo para essas interfaces: `switchport mode {access|trunk}`
     - O modo `access` deve ser utilizado já que essas interfaces só serão utilizadas por uma das VLANs, não sendo necessário o *trunking*.
-  - Em seguida, determinamos qual VLAN que utiliza essas interfaces: `switchport access {vlan name}`
+  - Em seguida, determinamos qual VLAN que utiliza essas interfaces: `switchport access vlan {N}`
   - Por último, podemos iniciar essas interfaces: `no sh`
 - Finalizamos a configuração básica do EtherSwitch para os hosts!! Agora falta configurarmos o link entre o EtherSwitch e o roteador :D
 
-- Devemos agora acessar (`conf t`) a interface conectada ao roteador, setar o modo do link para `trunk`, e adicionar quais VLANs podem trafegar nesse link (`switchport trunk allowed vlan 25, 35, 1-2, 1002-1005`) e ligá-la (`no sh`).
+- Devemos agora acessar (`conf t`) a interface conectada ao roteador, setar o modo do link para `trunk`, e adicionar quais VLANs podem trafegar nesse link (`switchport trunk allowed vlan 25,35,1-2,1002-1005`) e ligá-la (`no sh`).
   - [Detalhes sobre configuração.](https://community.cisco.com/t5/networking-knowledge-base/how-to-define-the-vlans-allowed-on-a-trunk-link/ta-p/3131083#:~:text=VLANs%201%20through%201005%20are,passing%20over%20the%20trunk%20link.)
 
 ### 5. Configuração do Roteador
