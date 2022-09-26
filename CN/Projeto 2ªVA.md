@@ -5,6 +5,7 @@
   - [2. Servidor DNS](#2-servidor-dns)
   - [3. Servidor WEB](#3-servidor-web)
   - [4. Client/Server](#4-clientserver)
+    - [Adicional: servidor FTP](#adicional-servidor-ftp)
   - [5.  Configuração do Firewall para o C7200](#5--configuração-do-firewall-para-o-c7200)
   - [Máscaras Wildcard](#máscaras-wildcard)
 
@@ -194,6 +195,53 @@ print(f'Mensagem recebida: {data}')
 # Fechar a conexão
 s.close()
 print('Conexão encerrada')
+
+```
+
+### Adicional: servidor FTP
+
+```python
+from pyftpdlib.authorizers import DummyAuthorizer
+from pyftpdlib.handlers import FTPHandler
+from pyftpdlib.servers import FTPServer
+
+authorizer = DummyAuthorizer()
+authorizer.add_user("carlos", "password", "/app/carlos/", perm="elradfmwMT")
+
+handler = FTPHandler
+handler.authorizer = authorizer
+
+server = FTPServer(("", 21), handler)
+server.serve_forever()
+```
+
+```python
+import argparse
+from ftplib import FTP
+
+parser = argparse.ArgumentParser(description='Acessar um servidor FTP')
+parser.add_argument('user', type=str, help='Nome de usuário')
+parser.add_argument('password', type=str, help='Senha')
+parser.add_argument('down_file', type=str, help='Arquivo do servidor FTP para ser lido')
+parser.add_argument('up_file', type=str, help='Arquivo para ser enviado ao servidor FTP')
+
+args = parser.parse_args()
+
+ftp = FTP('ftp.hubble')
+ftp.login(user=args.user, passwd=args.password)
+
+print('Arquivos no servidor: ')
+print(ftp.retrlines('LIST'))
+
+if args.down_file != 'None':
+   with open(f'/app/{args.down_file}', 'wb') as f:
+      ftp.retrbinary(f'RETR {args.down_file.split("/")[-1]}', f.write)
+
+if args.up_file != 'None':
+  with open(f'/app/{args.up_file}', 'rb') as f:
+        ftp.storbinary(f'STOR {args.up_file.split("/")[-1]}', f) 
+
+ftp.quit()
 
 ```
 
