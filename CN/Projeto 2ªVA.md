@@ -247,9 +247,25 @@ ftp.quit()
 
 ## 5.  Configuração do Firewall para o C7200
 
-- Vamos bloquear ICMPs;
-- Vamos bloquear alguns hosts;
-- Vamos bloquear outros protocolos;
+> - https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html
+> - https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_data_acl/configuration/xe-3s/sec-data-acl-xe-3s-book/sec-create-ip-apply.html
+
+Vamos utilizar uma *Extended Access List* pois ela permite comparar não apenas os endereços de origem, mas os endereços de destino. Assim, temos uma maior liberdade para definir o *Firewall*
+
+1. Criação da lista de acesso estendida
+   - `conf t`
+   - `ip access-list extended FIREWALL`
+2. Bloqueio ICMP ao servidor DNS
+   - `deny icmp any 10.1.14.2 0.0.0.0`
+3. Bloqueio da VLAN25 ao servidor HTTP (TCP)
+   - `deny ip 10.1.16.128 0.0.0.63 10.1.14.5 0.0.0.0` 
+4. Bloqueio da VLAN35 ao servidor FTP
+   - `deny ip 10.1.16.0 0.0.0.127 10.1.14.4 0.0.0.0` 
+5. Permitir o tráfego dos demais
+   - `permit ip any any` 
+6. Finalização: `end` + `wr`
+7. Fazer interface utilizar essa lista de acesso
+   - `conf t` + `int Serial 3/0` + `ip access-group FIREWALL in`
 
 ---
 
