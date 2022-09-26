@@ -85,6 +85,38 @@ Inicialmente, vamos escolher o **OSPFv2** (apesar dele possuir uma configuraçã
 
 ## 2. Servidor DNS
 
+1. Configuração inicial das zonas:
+
+  | Zona | Descrição | Tipo |
+  | --- | --- | --- |
+  | `hubble` | Zona principal/direta; Determina o domínio dos servidores | master |
+  | `0.14.1.10.in-addr.arpa` | DNS reverso | master |
+
+2. Configuração da zona direta:
+  
+  | Domínio | Descrição | Endereço |
+  | --- | --- | --- |
+  | `dns.hubble` | Servidor DNS | `10.1.14.2` |
+  | `ftp.hubble` | Servidor FTP | `10.1.14.4` |
+  | `web.hubble` | Servidor WEB | `10.1.14.3` |
+  | `calc.hubble`| Servidor HTTP | `10.1.14.5` | 
+
+3. Configuração da zona reversa:
+
+  | Endereço | Domínio |
+  | --- | --- |
+  | `4` | `ftp.hubble.` |
+  | `3` | `web.hubble.` |
+  | `5` | `calc.hubble` | 
+
+4. Configuração dos forwarders: podemos usar os do Google (8.8.8.8 ou 8.8.4.4).
+   - Observação: precisamos adicionar a opção `allow-query { any; };` para utilização. 
+5. Agora, basta configurar o servidor DHCP para utilizar o IP do servidor DNS configurado.
+   - Acessamos cada uma das pools: `ip dhcp pool {ID}`
+   - Atualizamos o DNS server: `dns-server 10.1.14.2`
+   - `end`
+
+
 ## 3. Servidor WEB
 
 ## 4. Client/Server
