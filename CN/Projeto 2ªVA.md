@@ -35,6 +35,9 @@
    - `ip address 10.1.14.1 255.255.254.0`
    - `no sh`
    - `end`
+5. Por último, precisamos adicionar em todos os servidores os locais de persistência
+   - Para o BIND9: `/etc/bind`
+   - Para os outros servidores, dependem de como esteja configurado. 
 
 ## 2. Roteamento: OSPF vs RIP?
 
@@ -120,7 +123,7 @@ Inicialmente, vamos escolher o **OSPFv2** (apesar dele possuir uma configuraçã
 
 ## 3. Servidor WEB
 
-Por simplicidade, vamos utilizar Python + Flask para servir uma página Web extremamente simples com um único texto: "Olá! Esse é um servidor WEB para o Projeto Hubble".
+Por simplicidade, vamos utilizar Python + Flask para servir uma página Web extremamente simples com um único texto: "Olá! Esse é um servidor WEB para o Projeto Hubble". Para ativar a aplicação, devemos iniciar o servidor e executar `cd app && source venv/bin/activate && python app.py`
 
 ```python
 from flask import Flask
@@ -134,6 +137,8 @@ def home():
 ```
 
 ## 4. Client/Server
+
+Para iniciar o servidor, devemos executar `cd app && source venv/bin/activate && python app.py`.
 
 ```python
 import socket
@@ -167,6 +172,9 @@ while True:
          print('Sent answer')
 ```
 
+Par utilizarmos o cliente, basta iniciar o venv (`cd app && source venv/bin/activate`) e utilizar o comando `python app.py -h` para obter uma lista dos argumentos.
+
+
 ```python
 import argparse
 import socket
@@ -195,10 +203,11 @@ print(f'Mensagem recebida: {data}')
 # Fechar a conexão
 s.close()
 print('Conexão encerrada')
-
 ```
 
 ### Adicional: servidor FTP
+
+Para iniciar o servidor, devemos executar `cd app && source venv/bin/activate && python app.py`.
 
 ```python
 from pyftpdlib.authorizers import DummyAuthorizer
@@ -214,6 +223,8 @@ handler.authorizer = authorizer
 server = FTPServer(("", 21), handler)
 server.serve_forever()
 ```
+
+Par utilizarmos o cliente, basta iniciar o venv (`cd app && source venv/bin/activate`) e utilizar o comando `python app.py -h` para obter uma lista dos argumentos.
 
 ```python
 import argparse
@@ -242,7 +253,6 @@ if args.up_file != 'None':
         ftp.storbinary(f'STOR {args.up_file.split("/")[-1]}', f) 
 
 ftp.quit()
-
 ```
 
 ## 5.  Configuração do Firewall para o C7200
