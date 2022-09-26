@@ -119,7 +119,83 @@ Inicialmente, vamos escolher o **OSPFv2** (apesar dele possuir uma configuraçã
 
 ## 3. Servidor WEB
 
+Por simplicidade, vamos utilizar Python + Flask para servir uma página Web extremamente simples com um único texto: "Olá! Esse é um servidor WEB para o Projeto Hubble".
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+   return "<p>Olá! Esse é um servidor WEB para o Projeto Hubble</p>"
+
+```
+
 ## 4. Client/Server
+
+```python
+import socket
+
+# Criação de um socket IPv4 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Tornando ele público com o IP do host
+s.bind(('', 80))
+
+# Permitir apenas uma conexão com clientes
+s.listen(1)
+
+# Loop do servidor
+# Aguarda uma conexão, realiza uma operação
+#  e retorna o resultado
+while True:
+   c, addr = s.accept()
+
+   with c:
+      print(f"Connected to {addr}")
+      while True:
+         data = c.recv(1024)
+         if not data:
+            break
+
+         v = str(data, 'utf-8').split(" ")
+         n1 = int(v[0])
+         n2 = int(v[1])
+         c.send(f'{n1 + n2}'.encode(encoding='utf-8'))
+         print('Sent answer')
+```
+
+```python
+import argparse
+import socket
+
+parser = argparse.ArgumentParser(description='Somar inteiros.')
+parser.add_argument('v1', type=int, help='Número inteiro 1')
+parser.add_argument('v2', type=int, help='Número inteiro 2')
+
+args = parser.parse_args()
+
+# Criação de um socket IPv4 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Conectando com o servidor
+s.connect(('calc.hubble', 80))
+
+# Enviar uma mensagem ao servidor
+send = f'{args.v1} {args.v2}'
+print(f'Enviando mensagem: {send}')
+s.sendall(send.encode(encoding='utf-8'))
+
+# Fazer a leitura dos dados
+data = str(s.recv(1024), 'utf-8')
+print(f'Mensagem recebida: {data}')
+
+# Fechar a conexão
+s.close()
+print('Conexão encerrada')
+
+```
 
 ## 5.  Configuração do Firewall para o C7200
 
