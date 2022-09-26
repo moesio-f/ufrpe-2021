@@ -7,7 +7,10 @@
   - [4. Client/Server](#4-clientserver)
     - [Adicional: servidor FTP](#adicional-servidor-ftp)
   - [5.  Configuração do Firewall para o C7200](#5--configuração-do-firewall-para-o-c7200)
-  - [Máscaras Wildcard](#máscaras-wildcard)
+- [Comandos importantes](#comandos-importantes)
+  - [Roteamento](#roteamento)
+  - [Firewall](#firewall)
+- [Máscaras Wildcard](#máscaras-wildcard)
 
 ---
 # Projeto 2ªVA
@@ -123,7 +126,7 @@ Inicialmente, vamos escolher o **OSPFv2** (apesar dele possuir uma configuraçã
 
 ## 3. Servidor WEB
 
-Por simplicidade, vamos utilizar Python + Flask para servir uma página Web extremamente simples com um único texto: "Olá! Esse é um servidor WEB para o Projeto Hubble". Para ativar a aplicação, devemos iniciar o servidor e executar `cd app && source venv/bin/activate && python app.py`
+Por simplicidade, vamos utilizar Python + Flask para servir uma página Web extremamente simples com um único texto: "Olá! Esse é um servidor WEB para o Projeto Hubble". Para ativar a aplicação, devemos iniciar o servidor e executar `cd app && source venv/bin/activate && python -m flask run --host=0.0.0.0`
 
 ```python
 from flask import Flask
@@ -245,12 +248,12 @@ print('Arquivos no servidor: ')
 print(ftp.retrlines('LIST'))
 
 if args.down_file != 'None':
-   with open(f'/app/{args.down_file}', 'wb') as f:
-      ftp.retrbinary(f'RETR {args.down_file.split("/")[-1]}', f.write)
+   with open(f'/app/{args.down_file}', 'wb') as file:
+      ftp.retrbinary(f'RETR {args.down_file.split("/")[-1]}', file.write)
 
 if args.up_file != 'None':
-  with open(f'/app/{args.up_file}', 'rb') as f:
-        ftp.storbinary(f'STOR {args.up_file.split("/")[-1]}', f) 
+  with open(f'/app/{args.up_file}', 'rb') as file:
+        ftp.storbinary(f'STOR {args.up_file.split("/")[-1]}', file) 
 
 ftp.quit()
 ```
@@ -277,9 +280,23 @@ Vamos utilizar uma *Extended Access List* pois ela permite comparar não apenas 
 7. Fazer interface utilizar essa lista de acesso
    - `conf t` + `int Serial 3/0` + `ip access-group FIREWALL in`
 
+# Comandos importantes
+
+## Roteamento
+
+- `sh ip ospf database`: link-state database;
+- `sh ip ospf neighbor`: roteadores vizinhos;
+- `sh ip ospf interface br`: lista os estados das interfaces desse roteador;
+- `sh ip ospf rib`: lista a RIB;
+
+## Firewall
+
+- `sh ip access-lists`: lista as definições de todas as listas de acesso.
+  - OBS:. se necessário alterar, recomendo criar uma nova lista estendida e alterar apenas o uso dela na interface (editar a lista requer utilizar vários comandos `no` em uma ordem específica)
+
 ---
 
-## Máscaras Wildcard
+# Máscaras Wildcard
 
 > A wildcard mask is a mask of bits that indicates which parts of an IP address are available for examination. In the Cisco IOS, they are used in several places, for example:
 > 
