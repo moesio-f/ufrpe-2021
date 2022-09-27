@@ -278,7 +278,9 @@ Vamos utilizar uma *Extended Access List* pois ela permite comparar não apenas 
    - `permit ip any any` 
 6. Finalização: `end` + `wr`
 7. Fazer interface utilizar essa lista de acesso
-   - `conf t` + `int Serial 3/0` + `ip access-group FIREWALL in`
+   - `conf t`
+   - `int Serial 3/0`
+   - `ip access-group FIREWALL in`
 
 # Comandos importantes
 
